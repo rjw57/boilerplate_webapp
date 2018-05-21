@@ -1,0 +1,23 @@
+# docker-compose file for local development and testing with container image.
+version: '3.2'
+
+services:
+  # PostgreSQL database for Boilerplate Webapp
+  boilerplate_webapp-db:
+    image: postgres
+    env_file:
+      - base.env
+    volumes:
+      - boilerplate_webapp-postgres-data-local:/var/lib/postgresql/data
+      - boilerplate_webapp-postgres-backup-local:/backups
+
+  # Debug SMTP provider
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+
+volumes:
+  # Persistent volumes for postgres database data
+  boilerplate_webapp-postgres-data-local:
+  boilerplate_webapp-postgres-backup-local:

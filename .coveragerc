@@ -1,0 +1,10 @@
+[run]
+omit=
+	.tox/*
+	setup.py
+	manage.py
+	*/test/*
+	*/tests/*
+	boilerplate_webapp_project/settings/*
+	boilerplate_webapp_project/wsgi.py
+	.tox/
